@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Table, Button, Modal } from 'react-bootstrap';
+import { Container, Button, Form } from 'react-bootstrap';
 
 
 function Login({ onLogin }) {
@@ -28,7 +28,6 @@ function Login({ onLogin }) {
           <Form.Label>Senha</Form.Label>
           <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </Form.Group>
-
         <Button variant="primary" type="submit">Entrar</Button>
       </Form>
     </Container>

@@ -3,6 +3,7 @@ import { Container, Table, Button, Modal } from 'react-bootstrap';
 import ItemForm from './itemform';
 
 
+
 function Dashboard() {
   const [items, setItems] = useState([
     { id: 1, nome: 'HDs', quantidade: 17 },
@@ -70,6 +71,7 @@ function Dashboard() {
           <ItemForm onSave={handleAdd} item={editingItem} />
         </Modal.Body>
       </Modal>
+
     </Container>
   );
 }
