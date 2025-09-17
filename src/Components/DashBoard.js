@@ -38,9 +38,19 @@ function Dashboard() {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5" style={{ 
+      backgroundColor: 'rgba(204, 204, 204, 0.6)', 
+      boxShadow:'0 0 30px rgba(204, 204, 204, 0.4)',
+      color: 'black',
+      borderRadius:'6px'
+    }}>
+
       <h3>Estoque de Infraestrutura</h3>
-      <Button className="mb-3" onClick={() => setShowModal(true)}>Adicionar Item</Button>
+      <Button className="mb-3" style={{
+      background: 'linear-gradient(45deg, gray, black)',
+      border:'none',
+      }} 
+      onClick={() => setShowModal(true)}>Adicionar Item</Button>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -63,15 +73,21 @@ function Dashboard() {
         </tbody>
       </Table>
 
+        <Button style= {{
+          background: 'linear-gradient(45deg, gray, black)',
+          border: 'none',
+        }}
+        variant="primary" onClick={() => {localStorage.removeItem('Token');
+          window.location.href = ' ';}}>Sair</Button>
+
       <Modal show={showModal} onHide={() => { setShowModal(false); setEditingItem(null); }}>
         <Modal.Header closeButton>
           <Modal.Title>{editingItem ? 'Editar Item' : 'Adicionar Item'}</Modal.Title>
-        </Modal.Header>
+        </Modal.Header> 
         <Modal.Body>
           <ItemForm onSave={handleAdd} item={editingItem} />
         </Modal.Body>
       </Modal>
-
     </Container>
   );
 }
