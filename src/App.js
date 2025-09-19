@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Components/login';
 import Dashboard from './Components/DashBoard';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

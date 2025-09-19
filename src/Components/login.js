@@ -21,28 +21,50 @@ function Login({ onLogin }) {
       maxWidth: '400px', 
       widht:'100%', 
       padding:'16px', 
-      backgroundColor: 'rgba(0, 0, 0, 0.6)', 
-      boxShadow:'0 0 30px rgba(0, 0, 0, 0.4)',
-      color: 'white',
-      borderRadius:'12px'
-    }}>
-      <h3>Login de acesso</h3>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formUsername" className="mb-3">
-          <Form.Label>Usuário</Form.Label>
-          <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} required style={{
-            placeholder: 'Digite seu usuário',
+      backgroundColor: 'rgba(248, 248, 248, 1)', 
+      boxShadow:'0 0 30px rgba(226, 228, 224, 0.95)',
+      color:'gray',
+      borderRadius:'12px',
+      borderColor:'black'
+      }}>
+      <h3 style={
+        {color:'black', 
+        fontSize:'20px', 
+        fontFamily:'sans-serif'
+        }}>Login</h3>
+
+      <p style={{
+        fontSize:'14px', 
+        fontWeight:'400'
+        }}>Entre com suas credenciais para ter acesso ao estoque</p>
+
+    <Form onSubmit={handleSubmit}>
+    <Form.Group controlId="formUsername" className="mb-3">
+    <Form.Label style={{
+        fontSize:'12px',
+        fontWeight:'400',
+        color:'black' 
+        }}>Usuário</Form.Label>
+
+    <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} required 
+    style={{
           }} />
         </Form.Group>
 
-        <Form.Group controlId="formPassword" className="mb-3">
-          <Form.Label>Senha</Form.Label>
-          <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </Form.Group>
-        <Button style= {{
-          background: 'linear-gradient(45deg, gray, black)',
-          border:'none'}}
-          variant="primary" type="submit">Entrar</Button>
+    <Form.Group controlId="formPassword" className="mb-3">
+    <Form.Label style={{fontSize:'12px', fontWeight:'400', color:'black'}}>Senha</Form.Label>
+    <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+    </Form.Group>
+    <Button className="" style= {{
+        background:'#3c9150ff',
+        alignItems:'center',
+        border:'gray',
+        fontWeight:'500',
+        fontSize:'12px',
+        maxWidth:'200px',
+        width:'100%',
+        borderRadius:'6px'}}
+        variant="primary" type="submit">Entrar</Button>
       </Form>
     </Container>
   );
