@@ -39,15 +39,15 @@ function Dashboard() {
 
   return (
     <Container className="mt-5" style={{ 
-      backgroundColor: 'rgba(204, 204, 204, 0.6)', 
-      boxShadow:'0 0 30px rgba(204, 204, 204, 0.4)',
+      backgroundColor: 'rgba(248, 248, 248, 1)', 
+      boxShadow:'0 0 30px rgba(226, 228, 224, 0.95)',
       color: 'black',
       borderRadius:'6px'
     }}>
 
       <h3>Estoque de Infraestrutura</h3>
       <Button className="mb-3" style={{
-      background: 'linear-gradient(45deg, gray, black)',
+      background: '#3c9150ff',
       border:'none',
       }} 
       onClick={() => setShowModal(true)}>Adicionar Item</Button>
@@ -74,7 +74,7 @@ function Dashboard() {
       </Table>
 
         <Button style= {{
-          background: 'linear-gradient(45deg, gray, black)',
+          background: '#3c9150ff',
           border: 'none',
         }}
         variant="primary" onClick={() => {localStorage.removeItem('Token');

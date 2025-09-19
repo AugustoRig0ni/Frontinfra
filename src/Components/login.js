@@ -55,13 +55,12 @@ function Login({ onLogin }) {
     <Form.Label style={{fontSize:'12px', fontWeight:'400', color:'black'}}>Senha</Form.Label>
     <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
     </Form.Group>
-    <Button className="" style= {{
+    <Button className="Enter" style= {{
         background:'#3c9150ff',
-        alignItems:'center',
         border:'gray',
         fontWeight:'500',
         fontSize:'12px',
-        maxWidth:'200px',
+        maxWidth:'380px',
         width:'100%',
         borderRadius:'6px'}}
         variant="primary" type="submit">Entrar</Button>
