@@ -39,10 +39,11 @@ function Dashboard() {
 
   return (
     <Container className="mt-5" style={{ 
-      backgroundColor: 'rgba(248, 248, 248, 1)', 
-      boxShadow:'0 0 30px rgba(226, 228, 224, 0.95)',
+      backgroundColor: '1px solid rgba(255, 255, 255, 0.2)', 
       color: 'black',
-      borderRadius:'6px'
+      borderRadius:'15px',
+      boxShadow:'0 8px 32px rgba(0, 0, 0, 0.4)',
+      border:'border: 10 px solid rgba(255, 255, 255, 0.2);',
     }}>
 
       <h3>Estoque de Infraestrutura</h3>
@@ -65,8 +66,16 @@ function Dashboard() {
               <td>{item.nome}</td>
               <td>{item.quantidade}</td>
               <td>
-                <Button size="sm" onClick={() => handleEdit(item)} className="me-2">Editar</Button>
-                <Button size="sm" variant="danger" onClick={() => handleDelete(item.id)}>Excluir</Button>
+                <Button size="sm" onClick={() => handleEdit(item)} className="me-2" style={{
+                  background:'#5c636a',
+                  border:'gray'
+                  }}>Editar</Button>
+
+
+                <Button size="sm" variant="danger" onClick={() => handleDelete(item.id)} style={{
+                  background:'#1e7e34',
+                  border:'gray'
+                  }}>Excluir</Button>
               </td>
             </tr>
           ))}
