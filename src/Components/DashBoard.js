@@ -44,6 +44,7 @@ function Dashboard() {
       borderRadius:'15px',
       boxShadow:'0 8px 32px rgba(0, 0, 0, 0.4)',
       border:'border: 10 px solid rgba(255, 255, 255, 0.2);',
+      padding:'20px'
     }}>
 
       <h3>Estoque de Infraestrutura</h3>

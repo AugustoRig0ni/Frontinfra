@@ -20,7 +20,7 @@ function Login({ onLogin }) {
     <Container className="mt-5" style= {{ 
       maxWidth: '400px', 
       widht:'100%', 
-      padding:'16px', 
+      padding:'35px', 
       backgroundColor: 'rgba(248, 248, 248, 1)', 
       boxShadow:'0 0 30px rgba(226, 228, 224, 0.95)',
       color:'gray',
@@ -43,17 +43,18 @@ function Login({ onLogin }) {
     <Form.Label style={{
         fontSize:'12px',
         fontWeight:'400',
-        color:'black' 
+        color:'black',
         }}>Usuário</Form.Label>
 
     <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} required 
-    style={{
-          }} />
+      placeholder="Digite seu usuário"
+      style={{}} />
         </Form.Group>
 
     <Form.Group controlId="formPassword" className="mb-3">
     <Form.Label style={{fontSize:'12px', fontWeight:'400', color:'black'}}>Senha</Form.Label>
-    <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+    <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required 
+      placeholder="Digite sua senha" />
     </Form.Group>
     <Button className="Enter" style= {{
         background:'#3c9150ff',
