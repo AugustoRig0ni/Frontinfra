@@ -52,7 +52,10 @@ function Login({ onLogin }) {
         </Form.Group>
 
     <Form.Group controlId="formPassword" className="mb-3">
-    <Form.Label style={{fontSize:'12px', fontWeight:'400', color:'black'}}>Senha</Form.Label>
+    <Form.Label style={{
+      fontSize:'12px', 
+      fontWeight:'400', 
+      color:'black'}}>Senha</Form.Label>
     <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required 
       placeholder="Digite sua senha" />
     </Form.Group>

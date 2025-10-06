@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Table, Button, Modal } from 'react-bootstrap';
 import ItemForm from './itemform';
-import Maintenance from './Maintenance';    
 
 
 
 function Dashboard() {
+  const navigate = useNavigate();
   const [items, setItems] = useState([
     { id: 1, nome: 'HDs', quantidade: 17 },
     { id: 2, nome: 'Mouse', quantidade: 25 },
@@ -46,14 +47,26 @@ function Dashboard() {
       boxShadow:'0 8px 32px rgba(0, 0, 0, 0.4)',
       border:'border: 10 px solid rgba(255, 255, 255, 0.2);',
       padding:'20px'
-    }}>
+      }}>
 
       <h3>Estoque de Infraestrutura</h3>
       <Button className="mb-3" style={{
-      background: '#3c9150ff',
-      border:'none',
-      }} 
+        background: '#3c9150ff',
+        border: 'none',
+      }}
       onClick={() => setShowModal(true)}>Adicionar Item</Button>
+
+      <Button className="mb-3 ms-2" style={{
+        background: '#3c9150ff',
+        border: 'none',
+      }}
+      onClick={() => navigate('/maintenance')}>Ir para Manutenção</Button>
+
+      <Button className="mb-3 ms-2" style={{
+        background: '#3c9150ff',
+        border: 'none',
+      }}
+      onClick={() => navigate('/maintenance-dashboard')}>Histórico de Manutenções</Button>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -69,13 +82,13 @@ function Dashboard() {
               <td>{item.quantidade}</td>
               <td>
                 <Button size="sm" onClick={() => handleEdit(item)} className="me-2" style={{
-                  background:'#5c636a',
+                  background:'#3c9150ff',
                   border:'gray'
                   }}>Editar</Button>
 
 
                 <Button size="sm" variant="danger" onClick={() => handleDelete(item.id)} style={{
-                  background:'#1e7e34',
+                  background:'#5c636a',
                   border:'gray'
                   }}>Excluir</Button>
               </td>
