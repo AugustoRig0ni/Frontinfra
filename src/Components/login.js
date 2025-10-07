@@ -25,8 +25,23 @@ function Login({ onLogin }) {
       boxShadow:'0 0 30px rgba(226, 228, 224, 0.95)',
       color:'gray',
       borderRadius:'12px',
-      borderColor:'black'
+      borderColor:'black',
       }}>
+         <div
+    style={{
+      textAlign: 'center',
+      fontSize: '48px',
+      fontWeight: 'bold',
+      background: 'linear-gradient(90deg, #00ff66, #006633)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      textShadow: '0 0 10px rgba(0, 255, 100, 0.5)',
+      marginBottom: '10px',
+      fontFamily: 'Poppins, sans-serif',
+    }}
+  >
+    BW8
+  </div>
       <h3 style={
         {color:'black', 
         fontSize:'20px', 

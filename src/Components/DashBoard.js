@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Table, Button, Modal } from 'react-bootstrap';
-import ItemForm from './itemform';
+import ItemForm from './ItemForm';
 
 
 
