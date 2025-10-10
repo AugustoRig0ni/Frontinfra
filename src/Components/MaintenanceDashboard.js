@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Container, Table, Button, Modal, Form } from "react-bootstrap";
+import api from "../services/api";
 
 function MaintenanceDashboard({ addMaintenance, maintenances, deleteMaintenance }) {
   const navigate = useNavigate();
@@ -13,7 +14,12 @@ function MaintenanceDashboard({ addMaintenance, maintenances, deleteMaintenance 
     exitDate: "",
     owner: "" 
   });
-
+  
+  useEffect(() => {
+   api.get("/MaintenanceDashBoard")
+      .then(res => setMaintenances(res.data))
+      .catch(err => console.error(err));
+}, []);
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Table, Button, Modal } from 'react-bootstrap';
-import ItemForm from './ItemForm';
+import ItemForm from './itemform';
+import api from "../services/api";
 
 
 
@@ -18,6 +19,16 @@ function Dashboard() {
 
   const [showModal, setShowModal] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
+
+useEffect(() => {
+  api.get("/dashboard")
+    .then(res => setItems(res.data))
+    .catch(err => console.error("Erro ao carregar itens", err));
+}, []);
+
+api.put("/dashboard", items)
+  .then(res => console.log("Itens atualizados com sucesso"))
+  .catch(err => console.error("Erro ao atualizar itens", err));
 
   const handleAdd = (item) => {
     if (editingItem) {
@@ -45,7 +56,7 @@ function Dashboard() {
       color: 'black',
       borderRadius:'15px',
       boxShadow:'0 8px 32px rgba(0, 0, 0, 0.4)',
-      border:'border: 10 px solid rgba(255, 255, 255, 0.2);',
+      border:'border: 10 px solid rgba(255, 255, 255, 0.2)',
       padding:'20px'
       }}>
 

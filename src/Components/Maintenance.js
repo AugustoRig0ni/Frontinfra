@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Container, Form, Button, Table } from "react-bootstrap";
+import api from "../services/api";
 
 function Maintenance({ addMaintenance, maintenances }) {
 	const navigate = useNavigate();
@@ -12,6 +13,12 @@ function Maintenance({ addMaintenance, maintenances }) {
 		entryDate: "",
 		exitDate: ""
 	});
+
+useEffect(() => {
+  api.get("/Maintenance")
+    .then(res => SetMaintenance(res.data))
+    .catch(err => console.error(err));
+}, []);
 
 	const handleChange = (e) => {
 		setMaintenance({ ...maintenance, [e.target.name]: e.target.value });
@@ -43,27 +50,36 @@ function Maintenance({ addMaintenance, maintenances }) {
 					<Form.Label>Técnico Responsável</Form.Label>
 					<Form.Control type="text" name="technician" value={maintenance.technician} onChange={handleChange} required placeholder="Nome do técnico" />
 				</Form.Group>
+
 				<Form.Group className="mb-3">
 					<Form.Label>Proprietário</Form.Label>
 					<Form.Control type="text" name="owner" value={maintenance.owner} onChange={handleChange} placeholder="Nome do proprietário" />
 				</Form.Group>
+
 				<Form.Group className="mb-3">
 					<Form.Label>Problema</Form.Label>
 					<Form.Control type="text" name="problem" value={maintenance.problem} onChange={handleChange} placeholder="Descreva o problema" />
 				</Form.Group>
+
 				<Form.Group className="mb-3">
 					<Form.Label>Data de Entrada</Form.Label>
 					<Form.Control type="date" name="entryDate" value={maintenance.entryDate} onChange={handleChange} />
 				</Form.Group>
+				
 				<Form.Group className="mb-3">
 					<Form.Label>Previsão de Saída</Form.Label>
 					<Form.Control type="date" name="exitDate" value={maintenance.exitDate} onChange={handleChange} />
 				</Form.Group>
-				<div style={{ display: 'flex', gap: '12px' }}>
+
+				<div style={{ 
+					display: 'flex',
+					gap: '12px' }}>
 					<Button variant="primary" type="submit" style={{
 						background:'#3c9150ff',
 						border:'gray',
-					}}>Registrar</Button>
+					}}>Registrar
+					</Button>
+
 					<Button variant="secondary" type="button" onClick={() => navigate('/dashboard')}>
 						Voltar
 					</Button>
